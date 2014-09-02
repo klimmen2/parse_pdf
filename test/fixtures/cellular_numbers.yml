@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: MyString
+  service_plan_price: 1.5
+  additional_local_airtime: 1.5
+  ld_and_roaming_charges: 1.5
+  data_voice_and_other: 1.5
+  other_frees: 1.5
+  gst: 1.5
+  subtotal: 1.5
+  total: 1.5
+  client_id: 1
+
+two:
+  user: MyString
+  service_plan_price: 1.5
+  additional_local_airtime: 1.5
+  ld_and_roaming_charges: 1.5
+  data_voice_and_other: 1.5
+  other_frees: 1.5
+  gst: 1.5
+  subtotal: 1.5
+  total: 1.5
+  client_id: 1

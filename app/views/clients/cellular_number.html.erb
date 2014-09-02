@@ -1,0 +1,41 @@
+
+<div class="hero-unit">
+<h2 class="alert alert-info center"> Cellular Numbers </h2>
+<%= will_paginate @cellular_numbers, class: "gon_watch_stop"%>
+  <div id="spinnerContainer" >
+</div>
+<table class="table  table-bordered ">
+    <tr>
+      <th >ID</th>
+      <th id= "user">User</th>
+      <th >Service plan price</th>
+      <th>Additional local airtime</th>
+      <th>Ld and roaming charge</th>
+      <th>Data voice and other</th>
+      <th>Other fees</th>
+      <th>Gst</th>
+      <th>Subtotal</th>
+      <th>Total</th>      
+    </tr>
+  <% @cellular_numbers.each do |cellular_number| %>
+      <tr>
+        <td><%= cellular_number.id %></td>
+        <td><%= cellular_number.user %></td>
+        <td><%= cellular_number.service_plan_price %></td>
+        <td><%= cellular_number.additional_local_airtime %></td>
+        <td><%= cellular_number.ld_and_roaming_charges %></td>
+        <td><%= cellular_number.data_voice_and_other %></td>
+        <td><%= cellular_number.other_frees %></td>
+        <td><%= cellular_number.gst %></td>
+        <td><%= cellular_number.subtotal %></td>
+        <td><%= cellular_number.total %></td>   
+      </tr>
+    <% end %>
+
+</table>
+<%= will_paginate @cellular_numbers, class: "gon_watch_stop"%>
+<br>
+<%= link_to 'Back', clients_path,id: 'location_reload', class: "btn btn-info gon_watch_stop" %>
+<br>
+<br>
+</div>

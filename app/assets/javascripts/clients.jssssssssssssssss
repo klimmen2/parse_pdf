@@ -1,0 +1,83 @@
+$(document).on("page:change",function(){ 
+	var spinner
+	var target
+	var status_container
+	var jiddd
+	alert(jiddd)
+  	$("#new_pdf_file").on("ajax:success", function(e, data, status, xhr) {
+    	jiddd=data.us
+    	console.log(data.us);
+    	document.getElementById('spinnerContainer').innerHTML += 'Parse launch file: <br>';
+  		document.getElementById("spinnerContainer").style.padding="15px 35px 15px 14px";
+  		document.getElementById("spinnerContainer").style.marginTop="20px";
+  		displayDate();
+  	//	SetDelay ();          
+  });
+  	}).on("ajax:error", function(e, xhr, status, error) {
+    	alert(status);
+  	});
+  	function displayDate(){    
+  		var opts = {
+    		lines: 13, // The number of lines to draw
+    		length: 7, // The length of each line
+    		width: 4, // The line thickness
+    		radius: 10, // The radius of the inner circle
+    		corners: 1, // Corner roundness (0..1)
+    		rotate: 0, // The rotation offset
+    		color: '#000', // #rgb or #rrggbb
+    		speed: 1, // Rounds per second
+    		trail: 60, // Afterglow percentage
+    		shadow: false, // Whether to render a shadow
+    		hwaccel: false, // Whether to use hardware acceleration
+    		className: 'spinner', // The CSS class to assign to the spinner
+    		zIndex: 2e9, // The z-index (defaults to 2000000000)
+    		top: 'auto', // Top position relative to parent in px
+    		left: 'auto' // Left position relative to parent in px      
+  		};
+  		target = document.getElementById('spinnerContainer');
+  		spinner = new Spinner(opts).spin(target);    
+	}
+
+	function SetDelay () {
+  		delayTime = setTimeout ("Counter ()",10000);
+	}
+
+	function Counter () {
+		$.ajax({
+    		url: "clients/qwerty",
+    		type: "POST",
+    		data: {key: key},
+    		success: function(data){
+      			status_container = data.status_sidekiq  
+      			console.log("jid = "+gon.global.jid[key-1]+ ", key = "+ key+", status = "+status_container)
+      		},                
+  		});
+  		if (status_container == 'complete') {
+    		spinner.stop(target);
+    		document.getElementById('spinnerContainer').innerHTML = '' ;
+    		document.getElementById("spinnerContainer").style.padding="0px 0px 0px 0px"; 
+    		document.getElementById("spinnerContainer").style.marginTop="0px";     
+    		alert('File is succesfully loaded');
+    		window.location.reload();
+    		clearTimeout (delayTime);
+  		}
+  		else {
+    		SetDelay ();
+  		}
+	}
+
+
+
+
+
+
+
+ if (status_container == 'complete') {
+    spinner.stop(target);
+    document.getElementById('spinnerContainer').innerHTML = '' ;
+    document.getElementById("spinnerContainer").style.padding="0px 0px 0px 0px"; 
+    document.getElementById("spinnerContainer").style.marginTop="0px";     
+    alert('File is succesfully loaded');
+    window.location.reload();
+    clearTimeout (delayTime);
+  }

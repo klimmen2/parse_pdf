@@ -1,0 +1,35 @@
+
+<div class="hero-unit">
+<h2 class="alert alert-success center"> Individual details </h2>
+  <div id="spinnerContainer">
+</div>
+<table class="table  table-bordered table-condensed">
+    <tr>
+    <th>ID</th>
+      <th>Total months saving</th>
+      <th>Total current charges</th>
+      <th>Service plan name</th>
+      <th>Additional local airtime</th>
+      <th>Long distance charges</th>
+      <th>Data and other services</th>
+      <th>Value addded service</th>
+    </tr>
+
+    <% @individual_details.each do |individual_detail| %>
+      <tr>
+        <td><%= individual_detail.id %></td>
+        <td><%= individual_detail.total_onths_savings %></td>
+        <td><%= individual_detail.total %></td>
+        <td><%= individual_detail.service_plan_name %></td>
+        <td><%= individual_detail.additional_local_airtime %></td>
+        <td><%= individual_detail.long_distance_charges %></td>
+        <td><%= individual_detail.data_and_other_services %></td>
+        <td><%= individual_detail.value_addded_services %></td>       
+      </tr>
+    <% end %>
+
+</table>
+<br>
+<%= link_to 'Back', clients_path,id: 'location_reload', class: "btn btn-success gon_watch_stop" %>
+</div>
+
